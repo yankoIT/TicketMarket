@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +9,18 @@ import { UserService } from '../shared/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  emailRegex = new RegExp('[a-zA-Z0-9.-_]{6,}@[a-zA-Z0-9]\.[a-z]')
+  
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
-  login(email, password) {
+  handleLogin({ email, password }: { email: string, password: string }) {
     this.userService.login(email, password);
+    this.router.navigate(['']);
   }
 }

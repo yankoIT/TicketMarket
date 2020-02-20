@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { RequesterService } from "./requester.service";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Router } from "@angular/router";
+import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"
@@ -10,8 +9,7 @@ export class UserService {
   public user = "";
   constructor(
     private http: HttpClient,
-    private requester: RequesterService,
-    private router: Router
+    private requester: RequesterService
   ) {}
 
   register(username: string, password: string) {
@@ -25,7 +23,6 @@ export class UserService {
       .post(url, { username, password }, { headers })
       .subscribe(userInfo => {
         this.setAuthInfo(userInfo);
-        this.router.navigate(['']);
       });
   }
 
@@ -38,15 +35,11 @@ export class UserService {
 
       this.http
         .post(url, { username, password }, { headers })
-        .subscribe(userInfo => {
-          this.setAuthInfo(userInfo);
-          this.router.navigate(['']);
-        });
+        .subscribe(userInfo => this.setAuthInfo(userInfo));
   }
 
   logout() {
     sessionStorage.clear();
-    this.router.navigate(['']);
   }
 
   setAuthInfo(userInfo) {
