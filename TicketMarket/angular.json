@@ -18,7 +18,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -43,7 +43,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -126,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "TicketMarket"
+  "defaultProject": "TicketMarket",
+  "cli": {
+    "analytics": "c3e2fc42-113b-44b4-a9e5-d87ababf7f44"
+  }
 }
