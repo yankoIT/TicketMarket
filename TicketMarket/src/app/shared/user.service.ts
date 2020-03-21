@@ -1,33 +1,23 @@
 import { Injectable } from "@angular/core";
 import { RequesterService } from "./requester.service";
-import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"
 })
 export class UserService {
-  public user = "";
+
+  get isLogged() {
+    return !!localStorage.getItem("username");
+  }
+
   constructor(
     private http: HttpClient,
     private requester: RequesterService
   ) {}
 
   register(username: string, password: string) {
-    const url = `${this.requester.baseUrl}/user/${this.requester.appKey}`;
-
-    const headers = new HttpHeaders()
-      .set("Authorization", this.requester.createAuthorization("Basic"))
-      .set("Content-Type", "application/json");
-
-    return this.http
-      .post(url, { username, password }, { headers })
-      .subscribe(userInfo => {
-        this.setAuthInfo(userInfo);
-      });
-  }
-
-  login(username: string, password: string) {
-    const url = `${this.requester.baseUrl}/user/${this.requester.appKey}/login`;
+    const url = `user/${this.requester.appKey}`;
 
     const headers = new HttpHeaders()
       .set("Authorization", this.requester.createAuthorization("Basic"))
@@ -36,14 +26,23 @@ export class UserService {
     return this.http.post(url, { username, password }, { headers });
   }
 
+  login(username: string, password: string) {
+    const url = `user/${this.requester.appKey}/login`;
+
+    const headers = new HttpHeaders()
+      .set("Authorization", this.requester.createAuthorization("Basic"))
+      .set("Content-Type", "application/json");
+
+    return this.http.post(url, { username, password }, { headers }, );
+  }
+
   logout() {
-    sessionStorage.clear();
+    localStorage.clear();
   }
 
   setAuthInfo(userInfo) {
-    sessionStorage.setItem("authtoken", userInfo._kmd.authtoken);
-    sessionStorage.setItem("userId", userInfo._id);
-    sessionStorage.setItem("username", userInfo.username);
-    this.user = userInfo.username;
+    localStorage.setItem("authtoken", userInfo._kmd.authtoken);
+    localStorage.setItem("userId", userInfo._id);
+    localStorage.setItem("username", userInfo.username);
   }
 }

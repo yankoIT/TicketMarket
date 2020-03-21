@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -23,6 +25,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(email, password).subscribe(userInfo => {
       this.userService.setAuthInfo(userInfo);
       this.router.navigate(['']);
-    }, console.error);
+      this.toastr.success("Login successful!");
+    }, () =>  this.toastr.error("Invalid credentials!"));
   }
 }

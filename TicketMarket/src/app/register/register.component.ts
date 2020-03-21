@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +14,18 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   constructor(
-    private causesService: UserService,
-    private router: Router
+    private userService: UserService,
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
   }
 
   register(email, password, rePassword) {
-     this.causesService.register(email, password);
-     this.router.navigate(['']);
+     this.userService.register(email, password).subscribe(userInfo => {
+      this.router.navigate(['login']);
+      this.toastr.success("Login registration!");
+    }, () =>  this.toastr.error("Registration failed!"));
   }
 }

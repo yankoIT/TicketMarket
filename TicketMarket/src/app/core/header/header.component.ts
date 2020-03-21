@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UserService } from 'src/app/shared/user.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../shared/user.service';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent  {
 
-  get isLogged() { return !!sessionStorage.getItem('username') }
-  get username() { return sessionStorage.getItem('username') }
+  get isLogged() { return this.userService.isLogged; }
+  get username() { return localStorage.getItem("username"); }
 
   constructor(
     private userService: UserService,
