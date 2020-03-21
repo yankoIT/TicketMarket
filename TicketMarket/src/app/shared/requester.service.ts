@@ -6,8 +6,8 @@ import { Injectable } from "@angular/core";
 
 export class RequesterService {
   public readonly baseUrl = "https://baas.kinvey.com";
-  public readonly appKey = "kid_H1A0hE6GI";
-  public readonly appSecret = "05cf88ff087349018dd80cd72dcde939";
+  public readonly appKey = "kid_HyB-XcQIU";
+  public readonly appSecret = "cbbc70efbe89446284ad503bf3e4c67d";
 
   constructor() {}
 

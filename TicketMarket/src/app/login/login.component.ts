@@ -20,7 +20,9 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogin({ email, password }: { email: string, password: string }) {
-    this.userService.login(email, password);
-    this.router.navigate(['']);
+    this.userService.login(email, password).subscribe(userInfo => {
+      this.userService.setAuthInfo(userInfo);
+      this.router.navigate(['']);
+    }, console.error);
   }
 }

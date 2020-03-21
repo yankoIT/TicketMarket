@@ -19,7 +19,7 @@ export class UserService {
       .set("Authorization", this.requester.createAuthorization("Basic"))
       .set("Content-Type", "application/json");
 
-    this.http
+    return this.http
       .post(url, { username, password }, { headers })
       .subscribe(userInfo => {
         this.setAuthInfo(userInfo);
@@ -33,9 +33,7 @@ export class UserService {
       .set("Authorization", this.requester.createAuthorization("Basic"))
       .set("Content-Type", "application/json");
 
-      this.http
-        .post(url, { username, password }, { headers })
-        .subscribe(userInfo => this.setAuthInfo(userInfo));
+    return this.http.post(url, { username, password }, { headers });
   }
 
   logout() {
