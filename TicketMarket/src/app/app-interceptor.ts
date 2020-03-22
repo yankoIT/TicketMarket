@@ -11,6 +11,20 @@ export class AppInterceptor implements HttpInterceptor {
         const fullURL = req.url.includes('http') ? req.url : `${apiURL}/${req.url}`;
         const isApiRequest = fullURL.includes(apiURL);
 
+        if(req.url.includes('user')) {
+            req = req.clone({
+                setHeaders: {
+                    'Authorization': `Basic ${btoa(`${environment.appKey}:${environment.appSecret}`)}`,
+                    'Content-Type': 'application/json'
+                }})
+        } else {
+            req = req.clone({
+                setHeaders: {
+                    'Authorization': `Kinvey ${sessionStorage.getItem("authtoken")}`,
+                    'Content-Type': 'application/json'
+                }})
+        }
+
         return next.handle(req.clone({ url: fullURL, withCredentials: isApiRequest }));
     }
 

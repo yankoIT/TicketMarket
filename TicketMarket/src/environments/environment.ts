@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiURL: 'https://baas.kinvey.com'
+  apiURL: 'https://baas.kinvey.com',
+  appKey: "kid_HyB-XcQIU",
+  appSecret: "cbbc70efbe89446284ad503bf3e4c67d"
 };
 
 /*

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { RequesterService } from "./requester.service";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: "root"
@@ -12,29 +12,18 @@ export class UserService {
   }
 
   constructor(
-    private http: HttpClient,
-    private requester: RequesterService
+    private http: HttpClient
   ) {}
 
   register(username: string, password: string) {
-    const url = `user/${this.requester.appKey}`;
-
-    const headers = new HttpHeaders()
-      .set("Authorization", this.requester.createAuthorization("Basic"))
-      .set("Content-Type", "application/json");
-
-    return this.http.post(url, { username, password }, { headers });
+    const url = `user/${environment.appKey}`;
+    return this.http.post(url, { username, password });
   }
 
   login(username: string, password: string) {
-    const url = `user/${this.requester.appKey}/login`;
-
-    const headers = new HttpHeaders()
-      .set("Authorization", this.requester.createAuthorization("Basic"))
-      .set("Content-Type", "application/json");
-
-    return this.http.post(url, { username, password }, { headers }, );
-  }
+    const url = `user/${environment.appKey}/login`;
+    return this.http.post(url, { username, password });
+  } 
 
   logout() {
     localStorage.clear();
