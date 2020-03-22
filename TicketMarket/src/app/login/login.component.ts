@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleLogin({ email, password }: { email: string, password: string }) {
+  loginHandler({ email, password }: { email: string, password: string }) {
     this.userService.login(email, password).subscribe(userInfo => {
       this.userService.setAuthInfo(userInfo);
       this.router.navigate(['']);

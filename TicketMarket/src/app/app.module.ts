@@ -15,6 +15,8 @@ import { EventModule } from './event/event.module';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { AppInterceptor } from './app-interceptor';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { AppInterceptor } from './app-interceptor';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     EventModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

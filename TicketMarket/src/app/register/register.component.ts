@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  register(email, password, rePassword) {
+  registerHandler(email, password) {
      this.userService.register(email, password).subscribe(userInfo => {
       this.router.navigate(['login']);
       this.toastr.success("Successful registration!");

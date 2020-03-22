@@ -190,3 +190,12 @@
       width: 25em;
     }
   }
+
+  input.ng-touched.ng-invalid {
+    border-color: red;
+  }
+
+  p.error-message {
+    color: red;
+    font-style: italic;
+  }
