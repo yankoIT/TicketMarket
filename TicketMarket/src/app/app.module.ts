@@ -11,7 +11,7 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListComponent } from './event/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { EventModule } from './event/event/event.module';
+import { EventModule } from './event/event.module';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { AppInterceptor } from './app-interceptor';
