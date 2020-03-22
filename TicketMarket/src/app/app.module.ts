@@ -17,7 +17,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppInterceptor } from './app-interceptor';
 import { SharedModule } from './shared/shared.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
