@@ -207,3 +207,26 @@
     background-size: 23px;
     background-position: center;
   }
+
+  #container {
+    min-height:100%;
+    position:relative;
+  }
+  
+  body {
+    margin-bottom:50px;
+  }
+
+  .w-100 {
+    padding-bottom:60px;  
+  }
+
+  .center {
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    text-align: center;
+    max-width: 100%;
+  }
