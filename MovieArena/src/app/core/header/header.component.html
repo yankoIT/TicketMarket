@@ -1,0 +1,12 @@
+<nav>
+    <ul>
+    <li><a href="">Home</a></li>
+        <li><a routerLink="/cinema">Movies</a></li>
+        <li><a routerLink="/movie/create">Add Movie</a></li>
+        <li><a routerLink="/list">My Movies</a></li>
+        <li *ngIf="isLogged" class="right"><a routerLink="" (click)="logout()">Logout</a></li>
+        <li *ngIf="isLogged" class="right">Welcome, {{username}}!</li>
+        <li *ngIf="!isLogged" class="right"><a routerLink="/register">Register</a></li>
+        <li *ngIf="!isLogged" class="right"><a routerLink="/login">Login</a></li>
+    </ul>
+</nav>

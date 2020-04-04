@@ -1,0 +1,21 @@
+<div>
+    <div *ngIf="!isLogged">
+      <div style=" padding-left: 7%; padding-top: 1%; text-align: center;" class="col-md-11">
+        <h2 class="center">Find all the events <span class="text-highlighted"> you've dreamed
+            about!</span></h2>
+      </div>
+      <img class="center" src="https://png.pngtree.com/thumb_back/fw800/background/20191029/pngtree-3d-blue-lighting-spotlight-stadium-arena-vector-background-image_320471.jpg">
+    </div>
+    <div>
+      <div *ngIf="isLogged" class="movies">
+        <div *ngFor="let movie of movies" class="movie">
+          <h2>Title: {{movie.name}}</h2>
+          <img class="movie-image"
+          [src]="movie.imageUrl">
+          <p>Release date: {{movie.releaseDate.day}}/{{movie.releaseDate.month}}/{{movie.releaseDate.year}} </p> 
+          <button class="btn btn-info" (click)="selectMovieHandler(movie)">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

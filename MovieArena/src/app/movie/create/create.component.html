@@ -1,0 +1,60 @@
+<div class="w-100">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h1 class="text-italic">Creating a movie</h1>
+      <form #createMovieForm="ngForm" (ngSubmit)="handleMovieCreation(createMovieForm.value)">
+        <div class="form-group">
+          <label for="name">Movie</label>
+          <input ngModel #nameInput="ngModel" type="text" id="name" name="name" class="form-control" placeholder="The movie name is ..." required>
+        </div>
+        <label for="releaseDate">Release Date</label>
+        <div class="input-group form-group">
+          <input ngModel #releaseDateInput="ngModel" class="form-control" placeholder="yyyy-mm-dd" id="releaseDate" name="releaseDate" ngbDatepicker #d="ngbDatepicker" required>
+          <div class="input-group-append">
+            <button id="dt" class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="genre">Genre</label>
+          <select ngModel #genreInput="ngModel" name="genre" class="form-control" id="genre" required multiple>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure </option>
+            <option value="Crime">Crime</option>
+            <option value="Drama">Drama</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Horror">Horror</option>
+            <option value="Musical">Musicals (Dance) Films</option>
+            <option value="Historical">Epics/Historical</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="War">War</option>
+            <option value="Westerns">Westerns</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="director">Director</label>
+          <input ngModel #directorInput="ngModel" type="text" id="director" name="director" class="form-control" placeholder="The director is ..." required>
+        </div>
+        <div class="form-group">
+          <label for="writers">Writers</label>
+          <input ngModel #writersInput="ngModel" type="text" id="writers" name="writers" class="form-control" placeholder="The writers are ..." required>
+        </div>
+        <div class="form-group">
+          <label for="cast">Cast</label>
+          <input ngModel #castInput="ngModel" type="text" id="cast" name="cast" class="form-control" placeholder="The actors are ..." required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea ngModel #descriptionInput="ngModel" name="description" id="description" cols="30" rows="10" class="form-control cause-description"
+            placeholder="A little bit information about the movie."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="imageUrl">Image URL</label>
+          <input ngModel #imageUrlInput="ngModel" type="url" id="imageUrl" name="imageUrl" class="form-control" pattern="https?://.+"  placeholder="https://...">
+        </div>
+        <button [disabled]="createMovieForm.invalid" class="btn btn-primary">Create</button>
+      </form>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

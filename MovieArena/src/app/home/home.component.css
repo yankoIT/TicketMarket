@@ -1,0 +1,94 @@
+*{
+    font-family: cursive;
+    
+  }
+  body{
+    background-size:cover;
+  }
+  .container {
+    max-width: 960px;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  .a-button{
+    color: rgb(46, 45, 45);
+    padding:10px;
+    transition: ease-in-out color .15s;
+  }
+  .a-button:hover{
+    color: rgb(78, 58, 2);
+    text-decoration: none;
+  }
+
+  
+ 
+  .img{
+    display: block;
+
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.411); 
+     /* border */
+    background: rgb(246, 217, 154);
+    box-shadow: 0 0 10rem 0 rgba(0, 0, 0, 0.712);
+  }
+  
+  
+  .img:before {
+  display: block;
+  content: '';
+  padding-top: 100%;
+  }
+  
+ 
+  
+/*Movie styles*/
+div.movies {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  div.movie {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 30%;;
+  }
+  
+  div.btn-group {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+  }
+  
+  ul.genres {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+  }
+  
+  div.movie button {
+    margin: 10px auto 12% auto;
+  }
+  
+  div.movie button:hover {
+    color: white !important;
+    outline: none;
+    cursor: pointer;
+  }
+
+  
+  
+  .home{
+    background-color:rgba(255, 255, 255, 0.781);
+    max-width:90%;
+  }
+
+  .text-highlighted{
+    color: rgb(248, 184, 8);
+  }

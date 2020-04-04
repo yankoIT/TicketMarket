@@ -1,0 +1,29 @@
+<div class="row single-trek-details text-center">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <div class="overflow-hidden my-5 p-4">
+                <h2 class="display-5">{{movie.name}}</h2>
+                <p class="movie-description">{{movie.description}}</p>
+                <p><strong class="infoType">Release Date:</strong> {{movie.releaseDate.day}}/{{movie.releaseDate?.month}}/{{movie.releaseDate?.year}}</p>
+                <p><strong class="infoType">Genre:</strong> {{this.movie.genre.join(' / ')}}</p>
+                <p><strong class="infoType">Directed by:</strong> {{movie.director}}</p>
+                <p><strong class="infoType">Cast:</strong> {{movie.cast}}</p>
+                <p><strong class="infoType">Screenplay by:</strong> {{movie.writers}}</p>
+            </div>
+    
+                <button type="button" [hidden]="!isOrganizer" class="btn btn-primary button-distance"(click)="editMovieHandler()">Edit</button>
+                <button type="button" [hidden]="!isOrganizer" class="btn btn-danger button-distance" (click)="deleteMovieHandler()">Delete</button>
+                <button type="button" [hidden]="isOrganizer || isFan" class="btn btn-warning" (click)="likeMovieHandler()">Like</button>
+                <button type="button" [hidden]="isOrganizer || !isFan" class="btn btn-secondary" (click)="dislikeMovieHandler()">Dislike</button>
+        </div>
+        <div class="col-6">
+            <img class="details-img"
+            [src]="movie?.imageUrl" />
+        </div>
+    </div>
+    <div class="col-md-12 text-center overflow-hidden">
+     
+
+    </div>
+</div>
