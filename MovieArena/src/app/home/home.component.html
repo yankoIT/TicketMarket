@@ -1,5 +1,15 @@
-<div>
-    <h1>Top 5 Most Popular Movies</h1>
+<div *ngIf="!isLogged">
+    <div style=" padding-left: 7%; padding-top: 1%; text-align: center;" class="col-md-11">
+      <h1 class="center">Come and find all the movies <span class="text-highlighted"> you haven't known you want to watch!</span></h1>
+    </div>
+    <img class="center" src="https://png.pngtree.com/thumb_back/fw800/background/20191029/pngtree-3d-blue-lighting-spotlight-stadium-arena-vector-background-image_320471.jpg">
 </div>
 
-<app-list [movies]="topMovies"></app-list>
+
+<div *ngIf="isLogged">
+    <h1>Top 5 Most Popular Movies</h1>
+</div>
+<div *ngIf="isLogged">
+    <app-list [movies]="topMovies"></app-list>
+</div>
+

@@ -9,8 +9,22 @@ import { environment } from '../../environments/environment';
 export class MovieService {
   movies: IMovie[];
   selectedMovie: IMovie;
+  genres: string[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.genres = [
+      'Action',
+      'Drama',
+      'Romance',
+      'Adventure',
+      'Crime', 'Comedy', 
+      'Horror', 'Musical', 
+      'Historical', 
+      'Science Fiction', 
+      'War', 
+      'Westerns'
+    ];
+  }
 
   create(movie: IMovie) {
     const url = `appdata/${environment.appKey}/movies`;

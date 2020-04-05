@@ -9,21 +9,17 @@ import { MovieService } from '../movie.service';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-
-  minDate = undefined;
+  movieGenres: string[];
 
   constructor( 
     private movieService: MovieService,
     private router: Router,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService) { 
+      this.movieGenres = this.movieService.genres;
+    }
 
   ngOnInit() {
-    const current = new Date();
-    this.minDate = {
-      year: current.getFullYear(),
-      month: current.getMonth() + 1,
-      day: current.getDate()
-    };
+
   }
 
   handleMovieCreation({ name, releaseDate, genre, director, writers, cast, description, imageUrl }) {

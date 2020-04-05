@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class EditComponent implements OnInit {
   movie: IMovie;
   updateMovieForm: FormGroup;
+  movieGenres: string[];
 
   constructor(
     private movieService: MovieService,
@@ -20,6 +21,7 @@ export class EditComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService,
     private fb: FormBuilder) {
+      this.movieGenres = this.movieService.genres;
       this.movie = activatedRoute.snapshot.data.movie;
 
       this.updateMovieForm = this.fb.group({
