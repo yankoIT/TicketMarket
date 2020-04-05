@@ -26,6 +26,6 @@ export class LoginComponent implements OnInit {
       this.userService.setAuthInfo(userInfo);
       this.router.navigate(['']);
       this.toastr.success("Login successful!");
-    }, () =>  this.toastr.error("Invalid credentials!"));
+    }, () => this.toastr.error("Invalid credentials!"));
   }
 }

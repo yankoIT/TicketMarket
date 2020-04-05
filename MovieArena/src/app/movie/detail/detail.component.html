@@ -12,10 +12,10 @@
                 <p><strong class="infoType">Screenplay by:</strong> {{movie.writers}}</p>
             </div>
     
-                <button type="button" [hidden]="!isOrganizer" class="btn btn-primary button-distance"(click)="editMovieHandler()">Edit</button>
-                <button type="button" [hidden]="!isOrganizer" class="btn btn-danger button-distance" (click)="deleteMovieHandler()">Delete</button>
-                <button type="button" [hidden]="isOrganizer || isFan" class="btn btn-warning" (click)="likeMovieHandler()">Like</button>
-                <button type="button" [hidden]="isOrganizer || !isFan" class="btn btn-secondary" (click)="dislikeMovieHandler()">Dislike</button>
+                <button type="button" [hidden]="!isCreator" class="btn btn-primary button-distance"(click)="editMovieHandler()">Edit</button>
+                <button type="button" [hidden]="!isCreator" class="btn btn-danger button-distance" (click)="deleteMovieHandler()">Delete</button>
+                <button type="button" [hidden]="isCreator || isFan" class="btn btn-warning" (click)="likeMovieHandler()">Like</button>
+                <button type="button" [hidden]="isCreator || !isFan" class="btn btn-secondary" (click)="dislikeMovieHandler()">Dislike</button>
         </div>
         <div class="col-6">
             <img class="details-img"

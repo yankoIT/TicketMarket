@@ -9,7 +9,7 @@ import { IMovie } from '../../shared/interfaces/movie';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-  isOrganizer: boolean;
+  isCreator: boolean;
   isFan: boolean;
   movie: IMovie;
 
@@ -18,7 +18,7 @@ export class DetailComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router) {
       this.movie = activatedRoute.snapshot.data.movie;
-      this.isOrganizer = this.movie.organizer === localStorage.getItem('username');
+      this.isCreator = this.movie.creator === localStorage.getItem('username');
       this.isFan = this.movie.fans.includes(localStorage.getItem('username'));
   }
 

@@ -15,8 +15,7 @@ export class CreateComponent implements OnInit {
   constructor( 
     private movieService: MovieService,
     private router: Router,
-    private toastr: ToastrService
-  ) { }
+    private toastr: ToastrService) { }
 
   ngOnInit() {
     const current = new Date();
@@ -28,7 +27,7 @@ export class CreateComponent implements OnInit {
   }
 
   handleMovieCreation({ name, releaseDate, genre, director, writers, cast, description, imageUrl }) {
-    this.movieService.create({ name, releaseDate, genre, director, writers, cast, description, imageUrl, organizer: localStorage.getItem('username'), fans: [] }).subscribe(eventInfo => {
+    this.movieService.create({ name, releaseDate, genre, director, writers, cast, description, imageUrl, creator: localStorage.getItem('username'), fans: [] }).subscribe(eventInfo => {
       this.router.navigate(['']);
       this.toastr.success(`Movie ${name} is created successfully!`);
     }, () =>  this.toastr.error("Movie creation failed"));

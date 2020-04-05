@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-      <h1 class="text-italic">Creating a movie</h1>
+      <div class="title">
+        <h1 class="text-italic">Add a movie</h1>
+      </div>
       <form #createMovieForm="ngForm" (ngSubmit)="handleMovieCreation(createMovieForm.value)">
         <div class="form-group">
           <label for="name">Movie</label>
@@ -46,11 +48,11 @@
         <div class="form-group">
           <label for="description">Description</label>
           <textarea ngModel #descriptionInput="ngModel" name="description" id="description" cols="30" rows="10" class="form-control cause-description"
-            placeholder="A little bit information about the movie."></textarea>
+            placeholder="A little bit information about the movie." required></textarea>
         </div>
         <div class="form-group">
           <label for="imageUrl">Image URL</label>
-          <input ngModel #imageUrlInput="ngModel" type="url" id="imageUrl" name="imageUrl" class="form-control" pattern="https?://.+"  placeholder="https://...">
+          <input ngModel #imageUrlInput="ngModel" type="url" id="imageUrl" name="imageUrl" class="form-control" pattern="https?://.+"  placeholder="https://..." required>
         </div>
         <button [disabled]="createMovieForm.invalid" class="btn btn-primary">Create</button>
       </form>

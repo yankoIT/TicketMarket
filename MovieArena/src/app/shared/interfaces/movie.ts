@@ -7,6 +7,6 @@ export interface IMovie {
     cast: string;
     description: string;
     imageUrl : string;
-    organizer: string;
+    creator: string;
     fans: string[];
   }

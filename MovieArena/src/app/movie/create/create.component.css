@@ -8,3 +8,13 @@
     margin: 0 auto;
     max-width: 500px;
 }
+
+  .title{
+    align-content: center;
+    text-align: center;
+  }
+
+  h1 {
+    text-transform: unset;
+    padding-bottom: 10px;
+  }
